@@ -14,9 +14,22 @@ namespace PrimeNumberCalculatorTests
             var limit = 10;
             var expected = new List<int>() {2, 3, 5, 7};
             // act
+            primes.Calculate(limit);
             var result = primes.Calculate(limit);
             // assert
             Assert.Equal(expected, result);
+        }
+        [Fact]
+        public void Should_Test_PrimeNumberCalculator_List_Count()
+        {
+            // arrange
+            var primes = new Calculator();
+            var limit = 10;
+            var expected = 4;
+            // act
+            var result = primes.Calculate(limit);
+            // assert
+            Assert.Equal(expected, result.Count);
         }
     }
 }
