@@ -31,5 +31,17 @@ namespace PrimeNumberCalculatorTests
             // assert
             Assert.Equal(expected, result.Count);
         }
+        [Fact]
+        public void Should_Find_All_OddNumbers_In_List()
+        {
+            // arrange
+            var oddNumbers = new Calculator();
+            var limit = 10;
+            var expected = new List<int> { 1, 3, 5, 7, 9 };
+            // act
+            var result = oddNumbers.FindOdd(limit);
+            // assert
+            Assert.Equal(expected, result);
+        }
     }
 }

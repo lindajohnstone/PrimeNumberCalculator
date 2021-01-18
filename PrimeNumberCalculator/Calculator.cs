@@ -45,6 +45,28 @@ namespace PrimeNumberCalculator
         {
             return Exists(numbers, number => number % 2 == 1);
         }
+
+        public List<int> FindOdd(int limit)
+        {
+            List<int> oddNumbers = new List<int>();
+            IEnumerable<int> numbers = Enumerable.Range(1, limit);
+            IsOdd(oddNumbers, numbers);
+            return oddNumbers;
+        }
+
+        private static void IsOdd(List<int> oddNumbers, IEnumerable<int> numbers)
+        {
+            foreach (var number in numbers)
+            {
+                AddOdd(oddNumbers, number);
+            }
+        }
+
+        private static void AddOdd(List<int> oddNumbers, int number)
+        {
+            if (number % 2 == 1) oddNumbers.Add(number);
+        }
+
         public bool HasEven(List<int> numbers)
         {
             return Exists(numbers, number => number % 2 == 0);
