@@ -62,8 +62,8 @@ namespace PrimeNumberCalculatorTests
         {
             // arrange
             var doubleAll = new Calculator();
+            var numbers = new List<int>() {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
             var expected = new List<int>() { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
-            var numbers = Enumerable.Range(1, 10);
             // act
             var result = doubleAll.DoubleAll(numbers);
             // assert
@@ -74,8 +74,8 @@ namespace PrimeNumberCalculatorTests
         {
             // arrange
             var squareAll = new Calculator();
+            var numbers = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             var expected = new List<int>() { 1, 4, 9, 16, 25, 36, 49, 64, 81, 100 };
-            var numbers = Enumerable.Range(1, 10);
             // act
             var result = squareAll.SquareAll(numbers);
             // assert

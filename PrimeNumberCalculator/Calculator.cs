@@ -49,8 +49,11 @@ namespace PrimeNumberCalculator
 
         public List<int> FindOdd(List<int> numbers)
         {
-            List<int> oddNumbers = numbers.FindAll(number => number % 2 == 1);
-            return oddNumbers;
+            return numbers.FindAll(isOdd);
+        }
+        private bool isOdd(int number)
+        {
+            return number % 2 == 1;
         }
 
         public bool HasEven(List<int> numbers)
@@ -60,40 +63,37 @@ namespace PrimeNumberCalculator
 
         public List<int> FindEven(List<int> numbers)
         {
-            List<int> evenNumbers = numbers.FindAll(number => number % 2 == 0);
-            return evenNumbers;
+            return numbers.FindAll(isEven);
+        }
+        private bool isEven(int number)
+        {
+            return number % 2 == 0;
         }
 
-        public List<int> DoubleAll(IEnumerable<int> numbers)
+        public List<int> DoubleAll(List<int> numbers)
         {
-            List<int> doubledNumbers = new List<int>();
-            numbers = Enumerable.Range(1, 10).Select(number => number * 2);
-            AddDoubledNumber(numbers, doubledNumbers);
-            return doubledNumbers;
+            return (from number in numbers
+                    select isDoubled(number)).ToList(); // convert to LINQ
         }
 
-        private static void AddDoubledNumber(IEnumerable<int> numbers, List<int> doubledNumbers)
+        private int isDoubled(int number)
         {
+            return number * 2;
+        }
+
+        public List<int> SquareAll(List<int> numbers)
+        {
+            /* List<int> squaredNumbers = new List<int>();
             foreach (var number in numbers)
             {
-                doubledNumbers.Add(number);
+                squaredNumbers.Add(number * number);
             }
+            return squaredNumbers; */
+            return numbers.Select(number => number * number).ToList(); // convert to LINQ (call form)
         }
-
-        public List<int> SquareAll(IEnumerable<int> numbers)
+        private int isSquared(int number)
         {
-            List<int> squaredNumbers = new List<int>();
-            numbers = Enumerable.Range(1, 10).Select(number => number * number);
-            AddSquares(numbers, squaredNumbers);
-            return squaredNumbers;
-        }
-
-        private static void AddSquares(IEnumerable<int> numbers, List<int> squaredNumbers)
-        {
-            foreach (var number in numbers)
-            {
-                squaredNumbers.Add(number);
-            }
+            return number * number;
         }
     }
 }
