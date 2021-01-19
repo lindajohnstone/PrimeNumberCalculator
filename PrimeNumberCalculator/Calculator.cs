@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -61,6 +62,22 @@ namespace PrimeNumberCalculator
         {
             List<int> evenNumbers = numbers.FindAll(number => number % 2 == 0);
             return evenNumbers;
+        }
+
+        public List<int> DoubleAll(IEnumerable<int> numbers)
+        {
+            List<int> doubledNumbers = new List<int>();
+            numbers = Enumerable.Range(1, 10).Select(number => number * 2);
+            AddDoubledNumber(numbers, doubledNumbers);
+            return doubledNumbers;
+        }
+
+        private static void AddDoubledNumber(IEnumerable<int> numbers, List<int> doubledNumbers)
+        {
+            foreach (var number in numbers)
+            {
+                doubledNumbers.Add(number);
+            }
         }
     }
 }

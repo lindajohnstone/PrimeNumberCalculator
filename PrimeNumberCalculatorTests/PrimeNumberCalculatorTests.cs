@@ -1,6 +1,8 @@
 using Xunit;
 using PrimeNumberCalculator;
 using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
 
 namespace PrimeNumberCalculatorTests
 {
@@ -54,6 +56,28 @@ namespace PrimeNumberCalculatorTests
             var result = evenNumbers.FindEven(numbers);
             // arrange
             Assert.Equal(expected, result);
+        }
+        [Fact]
+        public void Should_Test_DoubleAll_Doubles_Numbers()
+        {
+            // arrange
+            var doubleAll = new Calculator();
+            var expected = new List<int>() { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
+            var numbers = Enumerable.Range(1, 10);
+            // act
+            var result = doubleAll.DoubleAll(numbers);
+            // assert
+            Assert.Equal(expected, result);
+        }
+        [Fact]
+        public void Should_Test_SquareAll_Squares_Numbers()
+        {
+            // arrange
+
+            // act
+
+            // assert
+            
         }
     }
 }
