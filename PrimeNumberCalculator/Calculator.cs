@@ -58,7 +58,7 @@ namespace PrimeNumberCalculator
             return Exists(numbers, number => number % 2 == 0);
         }
 
-        public object FindEven(List<int> numbers)
+        public List<int> FindEven(List<int> numbers)
         {
             List<int> evenNumbers = numbers.FindAll(number => number % 2 == 0);
             return evenNumbers;
@@ -77,6 +77,22 @@ namespace PrimeNumberCalculator
             foreach (var number in numbers)
             {
                 doubledNumbers.Add(number);
+            }
+        }
+
+        public List<int> SquareAll(IEnumerable<int> numbers)
+        {
+            List<int> squaredNumbers = new List<int>();
+            numbers = Enumerable.Range(1, 10).Select(number => number * number);
+            AddSquares(numbers, squaredNumbers);
+            return squaredNumbers;
+        }
+
+        private static void AddSquares(IEnumerable<int> numbers, List<int> squaredNumbers)
+        {
+            foreach (var number in numbers)
+            {
+                squaredNumbers.Add(number);
             }
         }
     }

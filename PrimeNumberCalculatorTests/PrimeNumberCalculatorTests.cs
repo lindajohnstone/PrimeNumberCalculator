@@ -73,11 +73,13 @@ namespace PrimeNumberCalculatorTests
         public void Should_Test_SquareAll_Squares_Numbers()
         {
             // arrange
-
+            var squareAll = new Calculator();
+            var expected = new List<int>() { 1, 4, 9, 16, 25, 36, 49, 64, 81, 100 };
+            var numbers = Enumerable.Range(1, 10);
             // act
-
+            var result = squareAll.SquareAll(numbers);
             // assert
-            
+            Assert.Equal(expected, result);
         }
     }
 }
