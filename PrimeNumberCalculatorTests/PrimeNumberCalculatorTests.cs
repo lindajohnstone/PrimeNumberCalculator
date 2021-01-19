@@ -47,10 +47,13 @@ namespace PrimeNumberCalculatorTests
         public void Should_FindAll_Even_Numbers_In_List()
         {
             // arrange
-
+            var evenNumbers = new Calculator();
+            var numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            var expected = new List<int> { 2, 4, 6, 8, 10 };
             // act
-
+            var result = evenNumbers.FindEven(numbers);
             // arrange
+            Assert.Equal(expected, result);
         }
     }
 }

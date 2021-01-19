@@ -56,5 +56,11 @@ namespace PrimeNumberCalculator
         {
             return Exists(numbers, number => number % 2 == 0);
         }
+
+        public object FindEven(List<int> numbers)
+        {
+            List<int> evenNumbers = numbers.FindAll(number => number % 2 == 0);
+            return evenNumbers;
+        }
     }
 }
