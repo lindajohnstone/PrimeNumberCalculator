@@ -49,9 +49,9 @@ namespace PrimeNumberCalculator
 
         public List<int> FindOdd(List<int> numbers)
         {
-            return numbers.FindAll(isOdd);
+            return numbers.FindAll(IsOdd);
         }
-        private bool isOdd(int number)
+        private bool IsOdd(int number)
         {
             return number % 2 == 1;
         }
@@ -63,9 +63,9 @@ namespace PrimeNumberCalculator
 
         public List<int> FindEven(List<int> numbers)
         {
-            return numbers.FindAll(isEven);
+            return numbers.FindAll(IsEven);
         }
-        private bool isEven(int number)
+        private bool IsEven(int number)
         {
             return number % 2 == 0;
         }
@@ -73,10 +73,10 @@ namespace PrimeNumberCalculator
         public List<int> DoubleAll(List<int> numbers)
         {
             return (from number in numbers
-                    select isDoubled(number)).ToList(); // convert to LINQ
+                    select IsDoubled(number)).ToList(); // convert to LINQ
         }
 
-        private int isDoubled(int number)
+        private int IsDoubled(int number)
         {
             return number * 2;
         }
@@ -89,9 +89,9 @@ namespace PrimeNumberCalculator
                 squaredNumbers.Add(number * number);
             }
             return squaredNumbers; */
-            return numbers.Select(number => number * number).ToList(); // convert to LINQ (call form)
+            return numbers.Select(IsSquared).ToList(); // convert to LINQ (call form)
         }
-        private int isSquared(int number)
+        private int IsSquared(int number)
         {
             return number * number;
         }
